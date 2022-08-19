@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package  com.li.rpc;
+
+option java_multiple_files = true;
+option java_package = "com.li.rpc";
+option java_outer_classname = "BidirectionStream";
+
+service Bidirection {
+    // 双向流
+    rpc ManyToMany (stream MyRequest) returns(stream MyResponse);
+}
+
+message MyRequest {
+    string name = 1;
+
+    int32 value = 2;
+}
+
+message MyResponse {
+    string message = 1;
+
+    int64 result = 2;
+}
+  
+  
